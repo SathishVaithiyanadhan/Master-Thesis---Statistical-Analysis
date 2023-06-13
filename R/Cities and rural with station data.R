@@ -11,7 +11,7 @@ library(ggplot2)
 
 # Polyphemus Extent: -1.0625, 16.9375, 43.96875, 51.96875
 
-# import netcdf as raster
+# import netcdf as raster as the netcdf has more advantages when they uploaded as Raster in R for extensive applications
 Polyphemus<-lapply(Sys.glob("E:/Master Thesis/Station Data/POLYPHEMUS/NO2/*.nc"),raster::brick,level=1)
 
 CAMS<-lapply(Sys.glob("E:/Master Thesis/Station Data/CAMS/NO2/*.nc"),raster::brick,level=1)
@@ -110,15 +110,15 @@ month
 P.df<-data.frame(month <- month,a<-a[c(1:31)]) # df with month and mean together
 C.df<-data.frame(month <- month,b<-b[c(1:31)]) 
 S.df<-data.frame(month <- month,c<-c[c(1:31)]) 
-png(file="E:/Master Thesis/Köln, Düsseldorf, Essen, Bonn NO2 Mean 2016 - 2018.png",width = 1224,height = 571)
+png(file="E:/Master Thesis/KÃ¶ln, DÃ¼sseldorf, Essen, Bonn NO2 Mean 2016 - 2018.png",width = 1224,height = 571)
 colors<-c("Polyphemus"="green","CAMS"="red","Station"="blue")
 ggplot() + 
   geom_line(data=P.df, aes(x=month, y=a,color="Polyphemus" ) ) + 
   geom_line(data=C.df, aes(x=month, y=b,color="CAMS")  )+
   geom_line(data=S.df, aes(x=month, y=c,color="Station")  )+
   scale_x_date(date_breaks="1 month", date_labels="%b-%y") +
-  labs(title="Köln, Düsseldorf, Essen, Bonn NO2 Mean (Polyphemus, CAMS Reanalysis, Station Data) June 2016 - Dec 2018 ",
-       x="Month",y="Concentration (µg/m3)",colour="Model:")+theme(axis.text=element_text(angle=90,hjust=1,vjust=0.5,size=20))+theme(legend.position = "bottom" )+scale_color_manual(values = colors)+theme(axis.title.x= element_text(size = 20,margin = margin(t =50)))+
+  labs(title="KÃ¶ln, DÃ¼sseldorf, Essen, Bonn NO2 Mean (Polyphemus, CAMS Reanalysis, Station Data) June 2016 - Dec 2018 ",
+       x="Month",y="Concentration (Âµg/m3)",colour="Model:")+theme(axis.text=element_text(angle=90,hjust=1,vjust=0.5,size=20))+theme(legend.position = "bottom" )+scale_color_manual(values = colors)+theme(axis.title.x= element_text(size = 20,margin = margin(t =50)))+
   theme(legend.text = element_text(size = 20))+theme(legend.title = element_text(size = 20))+theme(plot.title = element_text(size = 20))+theme(axis.title.y= element_text(size = 20))
 dev.off()
 ############################################
