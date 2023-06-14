@@ -9,6 +9,7 @@ library(rlang)
 library(fields)
 library(maps)#for map legends and axis visualization
 
+
 # import netcdf as raster
 #Polyphemus Regridded
 #PNO2<-lapply(Sys.glob("~/+KA/ufsworld/hawking/hawking1/vait_sa/Station Data/POLYPHEMUS/NO2/*.nc"),raster::brick,level=1)
