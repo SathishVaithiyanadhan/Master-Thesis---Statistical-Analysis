@@ -7,7 +7,7 @@ library(tidyverse)
 library(cowplot)
 library(rlang)
 library(fields)
-library(maps)
+library(maps)#for map legends and axis visualization
 
 # import netcdf as raster
 #Polyphemus Regridded
